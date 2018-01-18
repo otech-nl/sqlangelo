@@ -1,13 +1,12 @@
 from .mixins import CRUDMixin, NamingMixin, inflect_engine
 
 
-
 def log(msg):
     ''' print a message '''
     print(msg)
 
 
-def get_base_model(db):
+def get_base_model(db):  # noqa: C901
 
     class BaseModel(db.Model, CRUDMixin, NamingMixin):
         """ used as super model for all other models
@@ -123,8 +122,12 @@ def get_base_model(db):
                 # self-referential
                 # setattr(cls, x_names[0], association_proxy(x_names[1], names[0]))
                 # setattr(cls, x_names[1], association_proxy(x_names[0], names[1]))
-                kwargs['primaryjoin'] = '%s.id==%s.c.%s_id' % (cls.__name__, x_cls.__tablename__, names[0])
-                kwargs['secondaryjoin'] = '%s.id==%s.c.%s_id' % (cls.__name__, x_cls.__tablename__, names[1])
+                kwargs['primaryjoin'] = '%s.id==%s.c.%s_id' % (cls.__name__,
+                                                               x_cls.__tablename__,
+                                                               names[0])
+                kwargs['secondaryjoin'] = '%s.id==%s.c.%s_id' % (cls.__name__,
+                                                                 x_cls.__tablename__,
+                                                                 names[1])
             setattr(cls, x_names[0],
                     db.relationship(
                         peer_cls.__name__,

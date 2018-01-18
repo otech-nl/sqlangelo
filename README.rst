@@ -3,13 +3,18 @@ SQLAngelo
 
     SQLAlchemy with defaults and sugar.
 
-Intention
-==========
+Documentation
+===============
 
-SQLalchemy is a powerful ORM, but highly technical. It could do with some sensible defaults and some syntactic sugar. This is what SQLAngelo provides.
+The documentation can be found `here <docs/index.rst>`_.
 
 Test
 ===========
 
-1. run `pipenv shell`
-2. run `pipenv install -e .`
+1. create and/or activate a virtual environment
+2. run the following:
+
+.. code-block::
+
+    pip install -e ".[test]"  # (notice the quotes)
+    python setup.py test

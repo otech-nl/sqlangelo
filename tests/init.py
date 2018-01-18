@@ -8,12 +8,12 @@ db.create_all()
 
 ########################################
 
-office = Group.create(abbr='Off')
+hrm = Group.create(abbr='HRM')
 rd = Group.create(abbr='R&D')
 otech = Company.create(name='OTech BV')
 steets = Employee.create(email='steets@otech.nl', company=otech)
 secr = Employee.create(email='office@otech.nl', company=otech)
-secr.groups.append(office)
+secr.groups.append(hrm)
 steets.groups.append(rd)
 
 print(otech)

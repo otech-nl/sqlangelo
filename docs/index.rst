@@ -10,6 +10,24 @@ Welcome to Flask SQLAngelo's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+    SQLAlchemy with defaults and sugar.
+
+Intention
+==========
+
+SQLalchemy is a powerful ORM, but highly technical. It could do with some sensible defaults and some syntactic sugar. This is what SQLAngelo provides.
+
+Dependencies
+==============
+
+1. SQLAngelo uses `pipenv <https://docs.pipenv.org/>`_ for package management.
+2. SQLAngelo uses `Flask-SQLAlchemy <http://flask-sqlalchemy.pocoo.org>`_ as a base. This implicitly imports Flask into your project.
+
+Test
+===========
+
+1. run `pipenv shell`
+2. run `pipenv install -e .`
 
 
 Indices and tables
