@@ -13,3 +13,5 @@ name = "pypi"
 [dev-packages]
 
 ptpython = "*"
+sphinx = "*"
+sphinx-autobuild = "*"

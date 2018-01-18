@@ -3,6 +3,7 @@
 *.egg-info
 *.log
 *.pyc
+*.sqlite3
 *~
 .cache
 .eggs
