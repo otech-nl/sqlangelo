@@ -1,6 +1,9 @@
 from tests import models
+import unittest
 
 
-def test_basemodel():
-    assert models.BaseModel.__abstract__
-    assert hasattr(models.BaseModel, 'id')
+class TestBase(unittest.TestCase):
+
+    def test_basemodel(self):
+        self.assertTrue(models.BaseModel.__abstract__)
+        self.assertTrue(hasattr(models.BaseModel, 'id'))
