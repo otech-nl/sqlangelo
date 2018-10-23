@@ -10,4 +10,4 @@
 .tox
 build
 dist
-venv
+docs

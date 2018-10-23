@@ -9,13 +9,7 @@ db = SQLAngelo(app, 'sqlite:///db.sqlite3', True)
 ########################################
 
 
-class BaseModel(db.BaseModel, mixins.CRUDMixin):
-    __abstract__ = True
-
-########################################
-
-
-class Group(BaseModel):
+class Group(db.BaseModel):
     abbr = db.Column(db.Unicode(6), nullable=False)
 
     def __str__(self):
@@ -23,7 +17,7 @@ class Group(BaseModel):
 
 
 @decorators.add_cross_reference(Group)
-@decorators.make_polymorphic_top(BaseModel, 'User Employee')
+@decorators.make_polymorphic_top(db.BaseModel, 'User Employee')
 class User(object):
     email = db.Column(db.Unicode(30), nullable=False)
 
@@ -31,7 +25,7 @@ class User(object):
         return '%s (%s)' % (self.email, ', '.join([str(g) for g in self.groups]))
 
 
-class Company(BaseModel):
+class Company(db.BaseModel):
     name = db.Column(db.Unicode(30), nullable=False)
 
     def __str__(self):

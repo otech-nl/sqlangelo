@@ -5,7 +5,7 @@ import inflect
 inflect_engine = inflect.engine()
 
 
-class NamingMixin(object):
+class Naming(object):
     """ Provide some convenient names for models. """
 
     @classmethod
@@ -23,7 +23,7 @@ class NamingMixin(object):
         return inflect_engine.plural(cls.get_api())
 
 
-class IntrospectionMixin(object):
+class Introspection(object):
     """ access to meta data about a model
 
     Available as app.db.Introspectionmixin
@@ -74,7 +74,7 @@ class IntrospectionMixin(object):
         return {c: getattr(self, c) for c in self.columns(remove=remove)}
 
 
-class CRUDMixin(object):
+class CRUD(object):
     """ provide Create, Read, Update and Delete (CRUD) methods
 
     Available as app.db.CRUDmixin.
@@ -136,8 +136,6 @@ class CRUDMixin(object):
             self.report('Updating %s "%s": %s' % (self.__class__.__name__,
                                                         self,
                                                         pformat(kwargs)))
-        log('UPDATE %s' % self)
-        log('   %s' % kwargs)
         self.before_update(kwargs)
         for attr, value in kwargs.items():
             setattr(self, attr, value)
@@ -211,7 +209,7 @@ class CRUDMixin(object):
         cls.commit()
 
 
-class OperationsMixin(object):
+class Operations(object):
 
     @classmethod
     def get(cls, id):

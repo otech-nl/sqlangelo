@@ -1,4 +1,4 @@
-from .mixins import CRUDMixin, NamingMixin, inflect_engine
+from .mixins import CRUD, Naming, inflect_engine
 
 
 def log(msg):
@@ -8,7 +8,7 @@ def log(msg):
 
 def get_base_model(db):  # noqa: C901
 
-    class BaseModel(db.Model, CRUDMixin, NamingMixin):
+    class BaseModel(db.Model, CRUD, Naming):
         """ used as super model for all other models
 
         :var id: every model should have a unique id
@@ -131,6 +131,7 @@ def get_base_model(db):  # noqa: C901
             setattr(cls, x_names[0],
                     db.relationship(
                         peer_cls.__name__,
+                        lazy='dynamic',
                         secondary=x_cls.__tablename__,
                         backref=db.backref(x_names[1], lazy='dynamic'),
                         **kwargs))

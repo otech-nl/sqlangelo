@@ -1,6 +1,6 @@
-from tests import models
+from tests.models import db
 
 
 def test_basemodel():
-    assert models.BaseModel.__abstract__
-    assert hasattr(models.BaseModel, 'id')
+    assert db.BaseModel.__abstract__
+    assert hasattr(db.BaseModel, 'id')

@@ -1,0 +1,6 @@
+[
+  "tests/test_base.py::test_basemodel",
+  "tests/test_decorators.py::test_inheritance",
+  "tests/test_decorators.py::test_reference",
+  "tests/test_decorators.py::test_crossreference"
+]

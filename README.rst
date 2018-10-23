@@ -1,7 +1,7 @@
 SQLAngelo
 #######
 
-    SQLAlchemy with defaults and sugar.
+    Flask SQLAlchemy with convenience and sugar.
 
 Documentation
 ===============
