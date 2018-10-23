@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask-sqlangelo = {editable = true, path = ".", extras = ["test"]}
+flask-sqlalchemy = "2.1"
 
 [dev-packages]
 

@@ -33,10 +33,9 @@ setup(name='flask_sqlangelo',
           'flask-sqlalchemy',
           'inflect'
       ],
+      tests_require=['faker'],
       extras_require={
           'dev': ['sphinx', 'sphinx-autobuild'],
-          'setup': ['pytest-runner'],
-          'test': ['pytest', 'behave', 'faker'],
       },
       test_suite='tests',
       include_package_data=True,
